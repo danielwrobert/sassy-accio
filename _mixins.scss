@@ -98,3 +98,24 @@
         }
     }
 }
+
+/**
+ * SVG Background
+ * NOTE: Image path in URL defined in Variables partial.
+ */
+@mixin svg-bg($file, $width, $height) {
+    // background: transparent url($img-path + $file + '.png') center no-repeat; /* Uncomment if IE8 support needed */
+    background: transparent url($img-path + $file + '.svg') center no-repeat;
+    background-size: $width $height;
+}
+
+/**
+ * SVG Sprite Background
+ * NOTE: Image path in URL defined in Variables partial.
+ *       SVG size for background-size declaration also defined in Variables partial.
+ */
+@mixin svg-sprite($file, $x-pos, $y-pos) {
+    // background: transparent url($img-path + $file + '.png') $x-pos $y-pos no-repeat; /* Uncomment if IE8 support needed */
+    background: transparent url($img-path + $file + '.svg') $x-pos $y-pos no-repeat;
+    background-size: $sprite-size;
+}

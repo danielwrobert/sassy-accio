@@ -57,3 +57,8 @@ $rem-base: 16px !default;
  * Image Path
  */
 $img-path: '../img/';
+
+/**
+ * SVG Sprite Dimensions - adjust each time sprite is updated
+ */
+$sprite-size: 100px 2118px;
