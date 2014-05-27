@@ -2,8 +2,8 @@
 -------------------------------------------------------------- */
 /*===== Text =====*/
 /**
-* Truncate Text
-*/
+ * Truncate Text
+ */
 @mixin text_truncate($width:100%) {
     width: $width;
     overflow: hidden;
@@ -15,8 +15,8 @@
 
 /*===== Gradients =====*/
 /**
-* Linear Gradient
-*/
+ * Linear Gradient
+ */
 @mixin linear_gradient($from, $to) {
     /* Fallback for sad browsers */
     background-color: $to;
@@ -32,4 +32,69 @@
     background-image: -ms-linear-gradient($from, $to);
     /* W3C */
     background-image: linear-gradient($from, $to);
+}
+
+
+/*===== RWD Helpers =====*/
+/**
+ * Media Query Breakpoints
+ */
+@mixin breakpoint($point) {
+    @if $point == large {
+        // Minimum width of 960/16 pixels = 60em.
+        @media (min-width: 60em) { @content; }
+    }
+    @else if $point == medium-large {
+        // Minimum width of 850/16 pixels = 53.125em.
+        @media (min-width: 53.125em) { @content; }
+    }
+    @else if $point == medium {
+        // Minimum width of 760/16 pixels = 47.5em.
+        @media (min-width: 47.5em) { @content; }
+    }
+    @else if $point == small {
+        // Minimum width of 600/16 pixels = 37.5em.
+        @media (min-width: 37.5em)  { @content; }
+    }
+    @else {
+        @media (min-width: $point) { @content; }
+    }
+}
+
+/**
+ * Flexible Videos
+ */
+@mixin flex-vid() {
+    height: 0;
+    padding-top: 30px;
+    padding-bottom: 56.25%;
+    position: relative;
+    overflow: hidden;
+
+    iframe {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0; left: 0;
+    }
+}
+
+/**
+ * HiDPI Background Images
+ * (http://www.abookapart.com/products/sass-for-web-designers - page 80)
+ * NOTE: Image path in URL defined in Variables partial.
+ */
+@mixin retina-bg($file, $type, $width, $height) {
+    background-image: url($img-path + $file + '.' + $type);
+
+    @media (-webkit-min-device-pixel-ratio: 1.5),
+            (min--moz-device-pixel-ratio: 1.5),
+            (-o-min-device-pixel-ratio: 3/2),
+            (min-device-pixel-ratio: 1.5),
+            (min-resolution: 1.5dppx) {
+        & {
+            background-image: url($img-path + $file + '-2x.' + $type);
+            background-size: $width $height;
+        }
+    }
 }
