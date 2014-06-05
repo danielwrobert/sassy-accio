@@ -10,7 +10,7 @@
 }
 
 /**
- * New Syntax, allows to optionally calculate on a different base value to counter compounding effect of em\'s.
+ * Allows to optionally calculate on a different base value to counter compounding effect of em\'s.
  * Call with 1, 2, 3 or 4 parameters, \'px\' is not required but supported
  * rem-calc(10 20 30px 40);
  * Space delimited, if you want to delimit using comma\'s, wrap it in another pair of brackets
@@ -20,7 +20,7 @@
  * If you require to comma separate your list
  * rem-calc((16px, 32px, 48), 8px);
  * (http://foundation.zurb.com/docs/components/sass.html)
- * NOTE: If you'd rather have a pixel fallback for IE8 support, consider using rem-calc
+ * NOTE: If you'd rather output rem units with a pixel fallback for IE8 support, consider using rem-calc
  *       in a Mixin that returns a duplicate declaration, as
  *       seen here - http://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/
  */
