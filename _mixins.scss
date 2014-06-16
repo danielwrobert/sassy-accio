@@ -4,7 +4,7 @@
 /**
  * Truncate Text
  */
-@mixin text_truncate($width:100%) {
+@mixin text-truncate($width:100%) {
     width: $width;
     overflow: hidden;
     -ms-text-overflow: ellipsis;
@@ -17,7 +17,7 @@
 /**
  * Linear Gradient
  */
-@mixin linear_gradient($from, $to) {
+@mixin linear-gradient($from, $to) {
     /* Fallback for sad browsers */
     background-color: $to;
     /* Mozilla Firefox */
