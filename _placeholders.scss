@@ -25,10 +25,10 @@
  * Word Wrapping
  */
 %word-wrap {
-    word-break:     break-word;
-    -webkit-hyphens: auto;
-    -moz-hyphens:    auto;
-    hyphens:         auto;
+    word-break: break-word;
+    // -webkit-hyphens: auto;
+    // -moz-hyphens:    auto;
+    hyphens: auto;
 }
 
 
