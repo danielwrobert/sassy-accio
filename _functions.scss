@@ -1,12 +1,24 @@
 /* =FUNCTIONS
 -------------------------------------------------------------- */
+/*===== Colors =====*/
+/**
+ * Various Shades of Black & White - http://codepen.io/chriscoyier/blog/some-mini-sass-mixins-i-like
+ */
+@function black($opacity) {
+    @return rgba(black, $opacity);
+}
+@function white($opacity) {
+    @return rgba(white, $opacity);
+}
+
+
 /*===== REM Calculations =====*/
 /**
  * Strips the unit of measure and returns it
  * (http://foundation.zurb.com/docs/components/sass.html)
  */
 @function strip-unit($num) {
-  @return $num / ($num * 0 + 1);
+    @return $num / ($num * 0 + 1);
 }
 
 /**
@@ -25,19 +37,19 @@
  *       seen here - http://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/
  */
 @function convert-to-rem($value, $base-value: $rem-base)  {
-  $value: strip-unit($value) / strip-unit($base-value) * 1em;
-  @if ($value == 0em) { $value: 0; } // Turn 0em into 0
-  @return $value;
+    $value: strip-unit($value) / strip-unit($base-value) * 1em;
+    @if ($value == 0em) { $value: 0; } // Turn 0em into 0
+    @return $value;
 }
 
 @function rem-calc($values, $base-value: $rem-base) {
-  $max: length($values);
+    $max: length($values);
 
-  @if $max == 1 { @return convert-to-rem(nth($values, 1), $base-value); }
+    @if $max == 1 { @return convert-to-rem(nth($values, 1), $base-value); }
 
-  $remValues: ();
-  @for $i from 1 through $max {
-    $remValues: append($remValues, convert-to-rem(nth($values, $i), $base-value));
-  }
-  @return $remValues;
+    $remValues: ();
+    @for $i from 1 through $max {
+        $remValues: append($remValues, convert-to-rem(nth($values, $i), $base-value));
+    }
+    @return $remValues;
 }
