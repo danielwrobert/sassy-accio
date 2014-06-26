@@ -61,24 +61,6 @@
 }
 
 /**
- * Flexible Videos
- */
-@mixin flex-vid() {
-    height: 0;
-    padding-top: 30px;
-    padding-bottom: 56.25%;
-    position: relative;
-    overflow: hidden;
-
-    iframe {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0; left: 0;
-    }
-}
-
-/**
  * HiDPI Background Images
  * (http://www.abookapart.com/products/sass-for-web-designers - page 80)
  * NOTE: Image path in URL defined in Variables partial.
@@ -117,4 +99,35 @@
     // background: transparent url($img-path + $file + '.png') $x-pos $y-pos no-repeat; /* Uncomment if IE8 support needed */
     background: transparent url($img-path + $file + '.svg') $x-pos $y-pos no-repeat;
     background-size: $sprite-size;
+}
+
+/**
+ * Rem calc with pixel fallback
+ * (http://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/)
+ */
+@mixin rem-calc($property, $values...) {
+  $max: length($values);
+  $pxValues: '';
+  $remValues: '';
+
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $pxValues: #{$pxValues + $value*16}px;
+
+    @if $i < $max {
+      $pxValues: #{$pxValues + " "};
+    }
+  }
+
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $remValues: #{$remValues + $value}rem;
+
+    @if $i < $max {
+      $remValues: #{$remValues + " "};
+    }
+  }
+
+  #{$property}: $pxValues;
+  #{$property}: $remValues;
 }

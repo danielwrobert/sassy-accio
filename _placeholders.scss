@@ -32,6 +32,27 @@
 }
 
 
+/*===== Embedded Content =====*/
+/**
+ * Flexible iframes/videos
+ */
+%flex-frames {
+    height: 0;
+    padding-top: 30px;
+    padding-bottom: 56.25%;
+    position: relative;
+    overflow: hidden;
+
+    iframe {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0; left: 0;
+    }
+}
+
+
+
 /*===== H5BP Helper Classes =====*/
 /*
  * Hide visually and from screen readers: h5bp.com/u
