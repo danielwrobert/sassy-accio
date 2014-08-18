@@ -2,7 +2,8 @@
 -------------------------------------------------------------- */
 /*===== Colors =====*/
 /**
- * Various Shades of Black & White - http://codepen.io/chriscoyier/blog/some-mini-sass-mixins-i-like
+ * Various Shades of Black & White
+ * Source: http://codepen.io/chriscoyier/blog/some-mini-sass-mixins-i-like
  */
 @function black($opacity) {
     @return rgba(black, $opacity);
@@ -15,7 +16,7 @@
 /*===== REM Calculations =====*/
 /**
  * Strips the unit of measure and returns it
- * (http://foundation.zurb.com/docs/components/sass.html)
+ * Source: http://foundation.zurb.com/docs/components/sass.html
  */
 @function strip-unit($num) {
     @return $num / ($num * 0 + 1);
@@ -31,7 +32,7 @@
  * em-calc(16px 32px 48px, 8px);
  * If you require to comma separate your list
  * em-calc((16px, 32px, 48), 8px);
- * (http://foundation.zurb.com/docs/components/sass.html)
+ * Source: http://foundation.zurb.com/docs/components/sass.html
  * NOTE: If you'd rather output rem units with a pixel fallback for IE8 support,
  *       see rem-calc Mixin in _mixins.scss
  */

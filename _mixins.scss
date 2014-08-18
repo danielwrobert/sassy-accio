@@ -37,6 +37,8 @@
 /*===== RWD Helpers =====*/
 /**
  * Media Query Breakpoints
+ * NOTE: The breakpoint values will need to be adjusted on a
+ *       per-project bases, based on content.
  */
 @mixin breakpoint($point) {
     @if $point == large {
@@ -62,7 +64,7 @@
 
 /**
  * HiDPI Background Images
- * (http://www.abookapart.com/products/sass-for-web-designers - page 80)
+ * Source: http://www.abookapart.com/products/sass-for-web-designers (page 80)
  * NOTE: Image path in URL defined in Variables partial.
  */
 @mixin retina-bg($file, $type, $width, $height) {
@@ -103,7 +105,7 @@
 
 /**
  * Rem calc with pixel fallback
- * (http://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/)
+ * Source: http://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/
  */
 @mixin rem-calc($property, $values...) {
   $max: length($values);

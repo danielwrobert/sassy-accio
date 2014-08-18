@@ -36,13 +36,13 @@ $bezier: cubic-bezier(0.6, 0, 0.4, 1);
 /**
  * Default font-size is set to 100% of the browser style sheet (usually 16px).
  * This is the default html and body font-size for the base em value.
- * (http://foundation.zurb.com/docs/components/sass.html)
+ * Source: http://foundation.zurb.com/docs/components/sass.html
  */
 $base-font-size: 100% !default;
 
 /**
  * $base-line-height is 24px while $base-font-size is 16px
- * (http://foundation.zurb.com/docs/components/sass.html)
+ * Source: http://foundation.zurb.com/docs/components/sass.html
  */
 $base-line-height: 150%;
 
@@ -50,7 +50,7 @@ $base-line-height: 150%;
  * Since the typical default browser font-size is 16px, that makes the calculation for grid size.
  * If you want your base font-size to be a different size and not have it effect grid size too,
  * set the value of $rem-base to $base-font-size ($rem-base: $base-font-size;)
- * (http://foundation.zurb.com/docs/components/sass.html)
+ * Source: http://foundation.zurb.com/docs/components/sass.html
  */
 $rem-base: 16 !default;
 
