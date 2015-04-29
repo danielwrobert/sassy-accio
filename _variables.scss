@@ -65,3 +65,11 @@ $img-path: '../img/';
  * SVG Sprite Dimensions - adjust each time sprite is updated
  */
 $sprite-size: 100px 2118px;
+
+/**
+ * Media Queries
+ */
+$is-hdpi: "(-webkit-min-device-pixel-ratio: 1.5),
+			(min--moz-device-pixel-ratio: 1.5),
+			(min-device-pixel-ratio: 1.5),
+			(min-resolution: 1.5dppx);
