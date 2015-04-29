@@ -103,16 +103,14 @@
  * HiDPI Background Images
  * Source: http://www.abookapart.com/products/sass-for-web-designers (page 80)
  * NOTE: Image path in URL defined in Variables partial.
- * NOTE: The '&' placeholder is not needed to get the main selector from within the MQ - will also work without.
+ * NOTE: The '&' placeholder in the book example is not needed to get the main selector from within the MQ - will also work without.
  */
 @mixin retina-bg($file, $type, $width, $height) {
     background-image: url($img-path + $file + '.' + $type);
 
     @media #{$is-hdpi} {
-        & {
-            background-image: url($img-path + $file + '-2x.' + $type);
-            background-size: $width $height;
-        }
+		background-image: url($img-path + $file + '-2x.' + $type);
+		background-size: $width $height;
     }
 }
 
