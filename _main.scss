@@ -8,8 +8,31 @@
 // Source: http://www.paulirish.com/2012/box-sizing-border-box-ftw/
 //----------------------------------------------------------------------------
 html {
-	  box-sizing: border-box;
+	box-sizing: border-box;
 }
 *, *:before, *:after {
-	  box-sizing: inherit;
+	box-sizing: inherit;
+}
+
+
+// === Font Icons (Genericons - http://genericons.com/) ===
+//----------------------------------------------------------------------------
+// Post Format Icons (WordPress Specific - remove if not WordPress project)
+//----------------------------------------------------------------------------
+//@each $icon, $format in $post-formats {
+//	.format-#{$icon} .entry-format:before {
+//		content: $format;
+//	}
+//}
+
+//----------------------------------------------------------------------------
+// Social Links Icons
+//----------------------------------------------------------------------------
+@each $icon, $link in $social-icons {
+	.social-links ul a[href*=#{$icon}]:before {
+		content: $link;
+		@if map-has-key($social-colors, $icon) {
+			background-color: map-get($social-colors, $icon);
+		}
+	}
 }
