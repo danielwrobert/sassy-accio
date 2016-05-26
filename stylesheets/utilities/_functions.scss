@@ -1,0 +1,122 @@
+// ========= FUNCTIONS =========
+// -------------------------------------------------------------- */
+
+// === Maps ===
+//----------------------------------------------------------------------------
+// Post Format Map - Requires Genericons (http://genericons.com/)
+$post-formats: (
+	aside: unquote("\"")+unquote(str-insert(f101,"\\", 1))+unquote("\""),
+	audio: unquote("\"")+unquote(str-insert(f109,"\\", 1))+unquote("\""),
+	gallery: unquote("\"")+unquote(str-insert(f103,"\\", 1))+unquote("\""),
+	image: unquote("\"")+unquote(str-insert(f102,"\\", 1))+unquote("\""),
+	link: unquote("\"")+unquote(str-insert(f107,"\\", 1))+unquote("\""),
+	status: unquote("\"")+unquote(str-insert(f105,"\\", 1))+unquote("\""),
+	quote: unquote("\"")+unquote(str-insert(f106,"\\", 1))+unquote("\""),
+	video: unquote("\"")+unquote(str-insert(f104,"\\", 1))+unquote("\"")
+);
+// Social Links Map - Requires Genericons (http://genericons.com/)
+$social-icons: (
+	wordpress: unquote("\"")+unquote(str-insert(f205,"\\", 1))+unquote("\""),
+	facebook: unquote("\"")+unquote(str-insert(f204,"\\", 1))+unquote("\""),
+	twitter: unquote("\"")+unquote(str-insert(f202,"\\", 1))+unquote("\""),
+	dribbble: unquote("\"")+unquote(str-insert(f201,"\\", 1))+unquote("\""),
+	google: unquote("\"")+unquote(str-insert(f206,"\\", 1))+unquote("\""),
+	pinterest: unquote("\"")+unquote(str-insert(f209,"\\", 1))+unquote("\""),
+	github: unquote("\"")+unquote(str-insert(f200,"\\", 1))+unquote("\""),
+	tumblr: unquote("\"")+unquote(str-insert(f214,"\\", 1))+unquote("\""),
+	youtube: unquote("\"")+unquote(str-insert(f213,"\\", 1))+unquote("\""),
+	flickr: unquote("\"")+unquote(str-insert(f211,"\\", 1))+unquote("\""),
+	vimeo: unquote("\"")+unquote(str-insert(f212,"\\", 1))+unquote("\""),
+	instagram: unquote("\"")+unquote(str-insert(f215,"\\", 1))+unquote("\""),
+	codepen: unquote("\"")+unquote(str-insert(f216,"\\", 1))+unquote("\""),
+	linkedin: unquote("\"")+unquote(str-insert(f207,"\\", 1))+unquote("\""),
+	fouresquare: unquote("\"")+unquote(str-insert(f226,"\\", 1))+unquote("\""),
+	reddit: unquote("\"")+unquote(str-insert(f222,"\\", 1))+unquote("\""),
+	digg: unquote("\"")+unquote(str-insert(f221,"\\", 1))+unquote("\""),
+	getpocket: unquote("\"")+unquote(str-insert(f224,"\\", 1))+unquote("\""),
+	path: unquote("\"")+unquote(str-insert(f219,"\\", 1))+unquote("\""),
+	stumbleupon: unquote("\"")+unquote(str-insert(f223,"\\", 1))+unquote("\""),
+	spotify: unquote("\"")+unquote(str-insert(f515,"\\", 1))+unquote("\""),
+	twitch: unquote("\"")+unquote(str-insert(f516,"\\", 1))+unquote("\""),
+	dropbox: unquote("\"")+unquote(str-insert(f225,"\\", 1))+unquote("\""),
+	feed: unquote("\"")+unquote(str-insert(f413,"\\", 1))+unquote("\""),
+	skype: unquote("\"")+unquote(str-insert(f220,"\\", 1))+unquote("\""),
+	mailto: unquote("\"")+unquote(str-insert(f410,"\\", 1))+unquote("\"")
+);
+$social-colors: (
+	wordpress: #21759b,
+	facebook: #3b5998,
+	twitter: #33ccff,
+	dribbble: #ea4c89,
+	google: #dd4b39,
+	pinterest: #c8232c,
+	github: #171515,
+	tumblr: #34526f,
+	youtube: #c4302b,
+	flickr: #ff0084,
+	vimeo: #1ab7ea,
+	instagram: #3f729b,
+	codepen: #000000,
+	linkedin: #0e76a8,
+	fouresquare: #ED4D79,
+	path: #E43124,
+	spotify: #1ed760,
+	dropbox: #1C83DB,
+	feed: #FB6405,
+	skype: #00AFF0
+);
+
+
+// === Colors ===
+//---------------------------------------------------------------------------
+// Various Shades of Black & White
+// Source: http://codepen.io/chriscoyier/blog/some-mini-sass-mixins-i-like
+//---------------------------------------------------------------------------
+@function black($opacity) {
+    @return rgba(black, $opacity);
+}
+@function white($opacity) {
+    @return rgba(white, $opacity);
+}
+
+
+// === REM Calculations ===
+//----------------------------------------------------------------------
+// Strips the unit of measure and returns it
+// Source: http://foundation.zurb.com/docs/components/sass.html
+//----------------------------------------------------------------------
+@function strip-unit($num) {
+    @return $num / ($num * 0 + 1);
+}
+
+//-----------------------------------------------------------------------------------------------------
+// Allows to optionally calculate on a different base value to counter compounding effect of em\'s.
+// Call with 1, 2, 3 or 4 parameters, \'px\' is not required but supported
+// rem-calc(10 20 30px 40);
+// Space delimited, if you want to delimit using comma\'s, wrap it in another pair of brackets
+// rem-calc((10, 20, 30, 40px));
+// Optionally call with a different base (eg: 8px) to calculate rem.
+// rem-calc(16px 32px 48px, 8px);
+// If you require to comma separate your list
+// rem-calc((16px, 32px, 48), 8px);
+// Source: http://foundation.zurb.com/docs/components/sass.html
+// NOTE: Similar to Foundation's method but here we are simply outputting rem units based
+//       on the pixel values given. Also see - https://github.com/whatsnewsaes/Skeleton-Sass/issues/18#issue-63764646. $rem-base variable is defined in _variables.scss.
+//-----------------------------------------------------------------------------------------------------
+@function convert-to-rem($value, $base-value: $rem-base)  {
+    $value: strip-unit($value) / strip-unit($base-value) * 1rem;
+    @if ($value == 0rem) { $value: 0; } // Turn 0rem into 0
+    @return $value;
+}
+
+@function rem-calc($values, $base-value: $rem-base) {
+    $max: length($values);
+
+    @if $max == 1 { @return convert-to-rem(nth($values, 1), $base-value); }
+
+    $remValues: ();
+    @for $i from 1 through $max {
+        $remValues: append($remValues, convert-to-rem(nth($values, $i), $base-value));
+    }
+    @return $remValues;
+}
