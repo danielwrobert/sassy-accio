@@ -76,33 +76,34 @@
 // === REM Calculations ===
 //-----------------------------------------------------------------------------
 // Similar to rem-calc function but will return rem unit with a px fallback
-// Source: https://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/
+// Source:
+//      https://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/
+//      http://joshbroton.com/quick-fix-sass-mixins-for-rem-values-with-px-fallback/
 //-----------------------------------------------------------------------------
-@mixin rem-fallback($property, $values...) {
-  $max: length($values);
-  $pxValues: '';
-  $remValues: '';
+@mixin px-rem($property, $values...) {
+	$max: length($values);
+	$pxValues: '';
+	$remValues: '';
 
-  @for $i from 1 through $max {
-    $value: strip-unit(nth($values, $i));
-    $pxValues: #{$pxValues + $value*$rem-base}px;
+	@for $i from 1 through $max {
+		$value: strip-unit(nth($values, $i));
 
-    @if $i < $max {
-      $pxValues: #{$pxValues + " "};
-    }
-  }
+		@if $value != 0 {
+			$pxValues: #{$pxValues + $value}px;
+			$remValues: #{$remValues + $value / 16}rem;
+		} @else {
+			$pxValues: #{$pxValues + $value};
+			$remValues: #{$remValues + $value / 16};
+		}
 
-  @for $i from 1 through $max {
-    $value: strip-unit(nth($values, $i));
-    $remValues: #{$remValues + $value}rem;
+		@if $i < $max {
+			$pxValues: #{$pxValues + " "};
+			$remValues: #{$remValues + " "};
+		}
+	}
 
-    @if $i < $max {
-      $remValues: #{$remValues + " "};
-    }
-  }
-
-  #{$property}: $pxValues;
-  #{$property}: $remValues;
+	#{$property}: $pxValues;
+	#{$property}: $remValues;
 }
 
 

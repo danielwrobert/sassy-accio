@@ -83,7 +83,6 @@ $social-colors: (
 // === REM Calculations ===
 //----------------------------------------------------------------------
 // Strips the unit of measure and returns it
-// Source: http://foundation.zurb.com/docs/components/sass.html
 //----------------------------------------------------------------------
 @function strip-unit($num) {
     @return $num / ($num * 0 + 1);
