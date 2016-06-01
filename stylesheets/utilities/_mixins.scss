@@ -75,15 +75,23 @@
 
 // === REM Calculations ===
 //-----------------------------------------------------------------------------
-// Similar to rem-calc function but will return rem unit with a px fallback
-// Source:
-//      https://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/
-//      http://joshbroton.com/quick-fix-sass-mixins-for-rem-values-with-px-fallback/
+// Rem output with px fallback
+// Usage:
+//      px-rem(margin-top, 10);
+//      px-rem(padding, 10px, 20px, 30px, 40px);
+//      px-rem(margin, 10, 20, 30, 40);
 //-----------------------------------------------------------------------------
+@function strip-unit($num) {
+	@return $num / ($num * 0 + 1);
+}
 @mixin px-rem($property, $values...) {
 	$max: length($values);
 	$pxValues: '';
 	$remValues: '';
+
+	@if $max > 4 {
+		$max: 4;
+	}
 
 	@for $i from 1 through $max {
 		$value: strip-unit(nth($values, $i));
